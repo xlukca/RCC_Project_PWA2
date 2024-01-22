@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
 <div class="container">
@@ -15,6 +15,16 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <hr>
+                    <ul class="mt-3">
+                        <li>{!! Auth::user()->full_name !!}</li>
+                    </ul>
+
+                    <hr>
+                        <ul class="mt-3">
+                            <li>{{ Auth::user()->email }}</li>
+                        </ul>
                 </div>
             </div>
         </div>
