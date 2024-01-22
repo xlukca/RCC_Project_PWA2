@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// USER
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.index');
 });
+
+
+// ADMIN
+
+Route::middleware(['auth'])->group(function () { 
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin/home', function () {
+    return view('admin.index');
+});
+
+
+});
+
+Auth::routes();
