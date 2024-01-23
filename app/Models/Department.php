@@ -19,4 +19,8 @@ class Department extends Model
         'city',
         'country',
     ];
+
+    public function employee() {
+        return $this->hasMany(Employee::class, 'department_id', 'id');
+    }  
 }

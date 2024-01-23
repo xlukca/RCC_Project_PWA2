@@ -31,10 +31,14 @@ Route::get('/admin/home', function () {
 
     // Departments
     Route::resource('/admin/departments', App\Http\Controllers\DepartmentController::class);
-    Route::delete('/authors/force/{id}', [App\Http\Controllers\DepartmentController::class, 'forceDestroy'])->name('departments.forceDestroy');
-    Route::post('/authors/restore/{id}', [App\Http\Controllers\DepartmentController::class, 'restore'])->name('departments.restore');
+    Route::delete('/admin/departments/force/{id}', [App\Http\Controllers\DepartmentController::class, 'forceDestroy'])->name('departments.forceDestroy');
+    Route::post('/admin/departments/restore/{id}', [App\Http\Controllers\DepartmentController::class, 'restore'])->name('departments.restore');
 
-
+    // Employees
+    Route::resource('/admin/employees', App\Http\Controllers\EmployeeController::class);
+    Route::delete('/admin/employees/force/{id}', [App\Http\Controllers\EmployeeController::class, 'forceDestroy'])->name('employees.forceDestroy');
+    Route::post('/admin/employees/restore/{id}', [App\Http\Controllers\EmployeeController::class, 'restore'])->name('employees.restore');
+    
 });
 
 Auth::routes();

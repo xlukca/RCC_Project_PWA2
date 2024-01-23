@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->foreignId('department_id')->references('id')->on('departments');
+            $table->foreignId('department_id')->references('id')->on('departments'); // if we want to permanent delete the department, firstly we need to delete the employees of the department
+            // $table->foreignId('department_id')->constrained('departments')->onDelete('cascade'); // if we want to permanent delete the department and the employees of the department
             $table->string('telephone')->nullable();
             $table->timestamps();
             $table->softDeletes();
