@@ -40,7 +40,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/">
                     <i class="fas fa-coffee"></i>
                     <span>Home</span></a>
@@ -56,7 +56,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="/admin/departments">
                     <i class="fas fa-building"></i>
                     <span>Departments</span></a>
             </li>
