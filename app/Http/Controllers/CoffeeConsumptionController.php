@@ -33,7 +33,7 @@ class CoffeeConsumptionController extends Controller
               'date_of_order'            => now(),
           ]);
           session()->flash('success', 'Coffee was successfully registered.');
-          return redirect()->route('coffee.menu');
+          return redirect()->route('coffee');
       } catch (Exception $e) {
           session()->flash('failure', $e->getMessage());
           return redirect()->back()->withInput();
