@@ -68,6 +68,12 @@
                     <span>Employees</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/payments">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

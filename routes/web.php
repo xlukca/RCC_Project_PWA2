@@ -38,6 +38,11 @@ Route::get('/admin/home', function () {
     Route::resource('/admin/employees', App\Http\Controllers\EmployeeController::class);
     Route::delete('/admin/employees/force/{id}', [App\Http\Controllers\EmployeeController::class, 'forceDestroy'])->name('employees.forceDestroy');
     Route::post('/admin/employees/restore/{id}', [App\Http\Controllers\EmployeeController::class, 'restore'])->name('employees.restore');
+
+    // Payments
+    Route::resource('/admin/payments', App\Http\Controllers\PaymentController::class);
+    Route::delete('/admin/payments/force/{id}', [App\Http\Controllers\PaymentController::class, 'forceDestroy'])->name('payments.forceDestroy');
+    Route::post('/admin/payments/restore/{id}', [App\Http\Controllers\PaymentController::class, 'restore'])->name('payments.restore');
     
 });
 
