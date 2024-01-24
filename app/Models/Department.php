@@ -20,7 +20,7 @@ class Department extends Model
         'country',
     ];
 
-    public function employee() {
-        return $this->hasMany(Employee::class, 'department_id', 'id');
-    }  
+    // public function employee() {
+    //     return $this->hasMany(Employee::class, 'department_id', 'id');
+    // }  
 }
