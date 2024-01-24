@@ -17,7 +17,8 @@ class CoffeeConsumptionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'employee_id' => fake()->numberBetween(1, 250),
+            'date_of_order' => fake()->dateTimeBetween('2023-01-01', '2024-1-25')->format('Y-m-d'),
         ];
     }
 }
