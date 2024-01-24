@@ -4,8 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Department extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+    
+    protected $fillable = [
+        'id',
+        'name_of_department',
+        'street',
+        'postcode',
+        'city',
+        'country',
+    ];
+
+    public function employee() {
+        return $this->hasMany(Employee::class, 'department_id', 'id');
+    }  
 }

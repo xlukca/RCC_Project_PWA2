@@ -13,6 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// USER
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.index');
 });
+
+
+// ADMIN
+
+Route::middleware(['auth'])->group(function () { 
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/home', function () {
+    return view('admin.index');
+});
+
+    // Departments
+    Route::resource('/admin/departments', App\Http\Controllers\DepartmentController::class);
+    Route::delete('/admin/departments/force/{id}', [App\Http\Controllers\DepartmentController::class, 'forceDestroy'])->name('departments.forceDestroy');
+    Route::post('/admin/departments/restore/{id}', [App\Http\Controllers\DepartmentController::class, 'restore'])->name('departments.restore');
+
+    // Employees
+    Route::resource('/admin/employees', App\Http\Controllers\EmployeeController::class);
+    Route::delete('/admin/employees/force/{id}', [App\Http\Controllers\EmployeeController::class, 'forceDestroy'])->name('employees.forceDestroy');
+    Route::post('/admin/employees/restore/{id}', [App\Http\Controllers\EmployeeController::class, 'restore'])->name('employees.restore');
+    
+});
+
+Auth::routes();
