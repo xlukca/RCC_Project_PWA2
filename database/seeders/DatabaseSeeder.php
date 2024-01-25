@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             DepartmentSeeder::class,
             EmployeeSeeder::class,
             PaymentSeeder::class,
+            CoffeeConsumptionSeeder::class,
         ]);
     }
 }

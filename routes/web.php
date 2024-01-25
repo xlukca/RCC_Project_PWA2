@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CoffeeConsumptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,12 @@ Route::get('/', function () {
     return view('user.index');
 });
 
+    // Coffee
+    Route::get('user/coffee', [CoffeeConsumptionController::class, 'showEmployee'])->name('coffee');
+    Route::post('user/coffee/register', [CoffeeConsumptionController::class, 'registerCoffee'])->name('coffee.register');
+
+    Route::get('user/coffee/search', [CoffeeConsumptionController::class, 'search'])->name('searchCoffee');
+    Route::get('user/coffee/search/result', [CoffeeConsumptionController::class, 'searchCoffee'])->name('searchCoffee');
 
 // ADMIN
 
