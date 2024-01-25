@@ -18,7 +18,9 @@ class CoffeeConsumptionFactory extends Factory
     {
         return [
             'employee_id' => fake()->numberBetween(1, 250),
-            'date_of_order' => fake()->dateTimeBetween('2023-01-01', '2024-1-25')->format('Y-m-d'),
+            'year_of_order' => fake()->numberBetween(2023, 2024),
+            'month_of_order' => str_pad(fake()->numberBetween(01, 12), 2, '0', STR_PAD_LEFT),
+            'day_of_order' => str_pad(fake()->numberBetween(01, 31), 2, '0', STR_PAD_LEFT),
         ];
     }
 }

@@ -11,6 +11,12 @@ class CoffeeConsumption extends Model
 
     protected $fillable = [
         'employee_id',
-        'date_of_order',
+        'year_of_order',
+        'month_of_order',
+        'day_of_order',
     ];
+
+    public function employee() {
+        return $this->hasOne(Employee::class, 'id', 'employee_id');
+    } 
 }

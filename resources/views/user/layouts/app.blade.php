@@ -29,7 +29,7 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('coffee') }}">Coffee</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="products.html">Coffee Consumption</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('searchCoffee') }}">Coffee Consumption</a></li>
                         <li class="nav-item px-lg-4">
                             @guest
                                 @if (Route::has('login'))

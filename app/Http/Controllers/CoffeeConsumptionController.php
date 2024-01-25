@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\CoffeeConsumption;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class CoffeeConsumptionController extends Controller
 {
@@ -18,7 +19,7 @@ class CoffeeConsumptionController extends Controller
     }
 
 
-    public function registerConsumption(Request $request)
+    public function registerCoffee(Request $request)
     {
         $rules = 
         [
@@ -30,7 +31,9 @@ class CoffeeConsumptionController extends Controller
       try {
           $d = CoffeeConsumption::create([
               'employee_id'              => $request['employee_id'],
-              'date_of_order'            => now(),
+              'year_of_order'            => now()->format('Y'),
+              'month_of_order'            => now()->format('m'),
+              'day_of_order'            => now()->format('d'),
           ]);
           session()->flash('success', 'Coffee was successfully registered.');
           return redirect()->route('coffee');
@@ -40,4 +43,65 @@ class CoffeeConsumptionController extends Controller
       }
 }
 
+    public function searchCoffee(Request $request)
+{
+    $selectedYears = $request->input('year_of_order');
+    $selectedMonths = $request->input('month_of_order');
+    $selecteddays = $request->input('day_of_order');
+    $selectedEmployees = $request->input('employee_id');
+
+    $query = CoffeeConsumption::with('employee');
+
+    if ($selectedYears) {
+        $query->whereIn('year_of_order', $selectedYears);
+    }
+
+    if ($selectedMonths) {
+        $query->whereIn('month_of_order', $selectedMonths);
+    }
+
+    if ($selecteddays) {
+        $query->whereIn('day_of_order', $selecteddays);
+    }
+
+    if ($selectedEmployees) {
+        $query->whereIn('employee_id', $selectedEmployees);
+    }
+
+    $results = $query->orderBy('year_of_order', 'asc')
+                    ->orderBy('month_of_order', 'asc')
+                    ->orderBy('day_of_order', 'asc')
+                    ->orderBy('employee_id', 'asc')
+                    ->get();
+
+    $year = CoffeeConsumption::select('year_of_order')->with('employee')->orderby('year_of_order', 'asc')->distinct()->get();
+    $month = CoffeeConsumption::select('month_of_order')->with('employee')->orderby('month_of_order', 'asc')->distinct()->get();
+    $employee_id = CoffeeConsumption::select('employee_id')->with('employee')->orderby('employee_id', 'asc')->distinct()->get();
+
+    return view('user.coffee.consumption', compact('results', 'year', 'month', 'employee_id'));
 }
+
+}
+
+    // $dates = DB::table('coffee_consumptions')->pluck('date_of_order');
+    // $years = [];
+    // $month = [];
+    // $day = [];
+    // foreach ($dates as $date) {
+    //     // Rozdeľte dátum podľa pomlčky
+    //     $dateParts = explode('-', $date);
+    
+    //     // Získajte prvý prvok, ktorý obsahuje rok
+    //     $year = $dateParts[0];
+    //     $month = $dateParts[1];
+    //     $day = $dateParts[2];
+    
+    //     // Pridajte rok do poľa rokov
+    //     $years[] = $year;
+    //     $months[] = $month;
+    //     $days[] = $day;
+    // }
+
+    // $year = $years;
+    // $month = $months;
+    // $day = $days;
