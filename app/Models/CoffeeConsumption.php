@@ -16,7 +16,8 @@ class CoffeeConsumption extends Model
         'day_of_order',
     ];
 
-    public function employee() {
-        return $this->hasOne(Employee::class, 'id', 'employee_id');
-    } 
+    public function employee()
+{
+    return $this->belongsTo(Employee::class, 'employee_id');
+}
 }
