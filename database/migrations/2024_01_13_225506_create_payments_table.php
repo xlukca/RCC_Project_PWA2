@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->references('id')->on('employees');
+            $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
             $table->string('income');
+            $table->date('date_of_income');
             $table->timestamps();
             $table->softDeletes();
         });

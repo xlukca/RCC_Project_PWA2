@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Exception;
 
 class DepartmentController extends Controller
 {
@@ -12,7 +13,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $departments = Department::withTrashed()->orderBy('name_of_department', 'asc')->paginate(10);
+        $departments = Department::withTrashed()->orderBy('id', 'asc')->paginate(10);
 
         return view('admin.departments.index')->with('departments', $departments);
     }
@@ -33,7 +34,7 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'id'                        => 'required|regex:/^0*[0-9]{1,5}$/|max:5',
+            'id'                        => 'required|regex:/^0*[0-9]{4,5}$/|max:5',
             'name_of_department'        => 'required|string',
             'street'                    => 'required|string',
             'postcode'                  => 'required|regex:/\b\d{5}\b/',

@@ -36,7 +36,7 @@ class DepartmentSeeder extends Seeder
             ['id' => 4330,  'name_of_department' => 'Department of Languages', 'street' => 'Radlinského 9', 'postcode' => '81237', 'city' => 'Bratislava', 'country' => 'Slovakia', 'created_at' => now()],
             ['id' => 4340,  'name_of_department' => 'Department of Physical Education', 'street' => 'Radlinského 9', 'postcode' => '81237', 'city' => 'Bratislava', 'country' => 'Slovakia', 'created_at' => now()],
             ['id' => 4360,  'name_of_department' => 'Department of Nutrition and Food Assessment', 'street' => 'Radlinského 9', 'postcode' => '81237', 'city' => 'Bratislava', 'country' => 'Slovakia', 'created_at' => now()],
-            ['id' => 370,  'name_of_department' => 'Department of Plastics and Rubber', 'street' => 'Radlinského 9', 'postcode' => '81237', 'city' => 'Bratislava', 'country' => 'Slovakia', 'created_at' => now()],
+            ['id' => 4370,  'name_of_department' => 'Department of Plastics and Rubber', 'street' => 'Radlinského 9', 'postcode' => '81237', 'city' => 'Bratislava', 'country' => 'Slovakia', 'created_at' => now()],
             ['id' => 4380,  'name_of_department' => 'Department of Chemical Technology of Wood Pulp and Paper', 'street' => 'Radlinského 9', 'postcode' => '81237', 'city' => 'Bratislava', 'country' => 'Slovakia', 'created_at' => now()],
             ['id' => 4630,  'name_of_department' => 'Department of NMR Spectroscopy and Mass Spectroscopy', 'street' => 'Radlinského 9', 'postcode' => '81237', 'city' => 'Bratislava', 'country' => 'Slovakia', 'created_at' => now()],
         ]);

@@ -34,11 +34,11 @@
                 <td>
                     @if(!$d->trashed())
                     {!! Form::open(array('route' => ['departments.destroy', $d->id], 'method'=>'DELETE')) !!}
-                    {!! Form::submit(__('Delete'), array('class' => 'btn btn-danger', 'onclick' => 'return confirm("' . __('Confirm delete') . '")')) !!}
+                    {!! Form::submit(__('Delete'), array('class' => 'btn btn-danger', 'onclick' => 'return confirm("' . 'Confirm delete' . '")')) !!}
                     {!! Form::close() !!}
                     @else
                     {!! Form::open(array('route' => ['departments.forceDestroy', $d->id], 'method'=>'DELETE')) !!}
-                    {!! Form::submit(__('Permanent Delete'), array('class' => 'btn btn-danger btn-sm', 'onclick' => 'return confirm("' . __('Confirm permanently delete') . '")')) !!}
+                    {!! Form::submit(__('Permanent Delete'), array('class' => 'btn btn-danger btn-sm', 'onclick' => 'return confirm("' . 'Confirm permanently delete' . '")')) !!}
                     {!! Form::close() !!}
                     {!! Form::open(array('route' => ['departments.restore', $d->id], 'method'=>'POST')) !!}
                     {!! Form::submit(__('Restore'), array('class' => 'btn btn-success btn-sm mt-1')) !!}
