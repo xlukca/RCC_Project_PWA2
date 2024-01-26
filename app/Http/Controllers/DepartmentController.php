@@ -34,7 +34,7 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'id'                        => 'required|regex:/^0*[0-9]{4,5}$/|max:5',
+            'id'                        => 'required|regex:/^0*[0-9]{4,5}$/',
             'name_of_department'        => 'required|string',
             'street'                    => 'required|string',
             'postcode'                  => 'required|regex:/\b\d{5}\b/',
