@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoffeeConsumptionController;
+use App\Http\Controllers\AccountManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,12 @@ Route::get('/admin/home', function () {
     Route::resource('/admin/payments', App\Http\Controllers\PaymentController::class);
     Route::delete('/admin/payments/force/{id}', [App\Http\Controllers\PaymentController::class, 'forceDestroy'])->name('payments.forceDestroy');
     Route::post('/admin/payments/restore/{id}', [App\Http\Controllers\PaymentController::class, 'restore'])->name('payments.restore');
+
+    // Account Management
+    Route::get('/admin/managements', [AccountManagementController::class, 'account'])->name('account');
+    Route::get('/admin/managements/xls', [AccountManagementController::class, 'exportXLS'])->name('account.exportXLS');
+    Route::get('/admin/managements/pdf', [AccountManagementController::class, 'exportPDF'])->name('account.exportPDF');
+    
     
 });
 
