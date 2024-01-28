@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotificationEmail;
 use App\Models\CoffeeConsumption;
+use App\Models\Employee;
 use Exception;
 
 class NotificationController extends Controller
@@ -21,11 +22,17 @@ class NotificationController extends Controller
 
     public function sendEmail(Request $request){
 
+
+        $employee = Employee::with(['consumption', 'payment']);
+
         $selectedYears = $request->input('year_of_order');
         $selectedMonths = $request->input('month_of_order');
+        $selectedEmployees = $request->input('employee_id');
 
-        $query = CoffeeConsumption::with('employee');
+        // $query = Employee::with('consumption', 'payment');
 
+        $employee->whereHas('consumption', function ($query) use ($selectedYears, $selectedMonths, $selectedEmployees) {
+         
         if ($selectedYears) {
             $query->whereIn('year_of_order', $selectedYears);
         }
@@ -34,13 +41,19 @@ class NotificationController extends Controller
             $query->whereIn('month_of_order', $selectedMonths);
         }
 
-        $results = $query->get();
+        if ($selectedEmployees) {
+            $query->whereIn('employee_id', $selectedEmployees);
+        }
+    });
+
+        $results = $employee->get();
 
         // dd($results);
         foreach ($results as $result) {
             
+            // dd($result->consumption->last()->month_of_order);
         try {
-            Mail::to($result->employee->email)->queue(new NotificationEmail($result, $results));
+            Mail::to($result->email)->queue(new NotificationEmail($result));
             session()->flash('success', 'Emails were sent successfully');
         } catch (Exception $e) {
             session()->flash('failure', $e->getMessage());
