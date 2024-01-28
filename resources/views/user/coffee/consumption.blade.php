@@ -15,7 +15,7 @@
     <div class="row mt-2 mb-4">
         <div class="col-md-2">
             <label class="form-label">Year</label>  
-            <select class="form-control" name="year_of_order[]" multiple>
+            <select class="form-control" name="year_of_order[]" required multiple>
             @foreach($year as $y)
             <option>{{ $y->year_of_order }}</option>
             @endforeach
@@ -24,7 +24,7 @@
 
         <div class="col-md-3">
             <label class="form-label">Month</label>  
-            <select class="form-control" name="month_of_order[]" multiple>
+            <select class="form-control" name="month_of_order[]" required multiple>
             @foreach($month as $m)
             <option>{{ $m->month_of_order }}</option>
             @endforeach
@@ -33,7 +33,7 @@
       
         <div class="col-md-3">
             <label class="form-label">Employee</label>  
-            <select class="form-control" name="employee_id[]" multiple>
+            <select class="form-control" name="employee_id[]" required multiple>
             @foreach($employee_id->sortBy('employee.employee_full_name_reverse') as $em)
             <option value="{{ $em->employee_id }}">{{ $em->employee->employee_full_name_reverse }}</option>
             @endforeach
