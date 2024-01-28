@@ -69,6 +69,12 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('notificationIndex') }}">
+                    <i class="fas fa-bell"></i>
+                    <span>Notification</span></a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('account') }}">
                     <i class="fas fa-coins"></i>
                     <span>Acconut Management</span></a>

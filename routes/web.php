@@ -57,6 +57,9 @@ Route::get('/admin/home', function () {
     Route::get('/admin/managements/xls', [AccountManagementController::class, 'exportXLS'])->name('account.exportXLS');
     Route::get('/admin/managements/pdf', [AccountManagementController::class, 'exportPDF'])->name('account.exportPDF');
     
+    //Notifications
+    Route::get('/admin/notification/index', [App\Http\Controllers\NotificationController::class, 'index'])->name('notificationIndex');
+    Route::post('/admin/notification/sendemail', [App\Http\Controllers\NotificationController::class, 'sendEmail'])->name('notificationEmail');
     
 });
 
