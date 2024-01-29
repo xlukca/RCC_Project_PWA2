@@ -17,12 +17,8 @@ use App\Http\Controllers\AccountManagementController;
 
 // USER
 
-Route::get('/', function () {
-    return view('user.index');
-});
-
     // Coffee
-    Route::get('user/coffee', [CoffeeConsumptionController::class, 'showEmployee'])->name('coffee');
+    Route::get('/', [CoffeeConsumptionController::class, 'showEmployee'])->name('coffee');
     Route::post('user/coffee/register', [CoffeeConsumptionController::class, 'registerCoffee'])->name('coffee.register');
 
     Route::get('user/coffee/search', [CoffeeConsumptionController::class, 'search'])->name('searchCoffee');

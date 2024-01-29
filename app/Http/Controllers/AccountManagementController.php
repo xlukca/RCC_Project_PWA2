@@ -11,14 +11,14 @@ class AccountManagementController extends Controller
 {
     public function account()
     {
-        $managements = Employee::with(['consumption', 'payment'])->paginate(10);
+        $managements = Employee::with(['consumption', 'payment'])->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->paginate(10);
        
         return view('admin.accountManagement.index')->with('managements', $managements);
     }
 
     public function exportPDF()
     {
-        $managements = Employee::with(['consumption', 'payment'])->get();
+        $managements = Employee::with(['consumption', 'payment'])->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->get();
         $array = ['title' => 'Account Management'];
         $data = compact('managements', 'array');
         $pdf = PDF::loadView('admin.accountManagement.pdf', $data);
@@ -32,7 +32,7 @@ class AccountManagementController extends Controller
     public function exportXLS()
     {
         $csv = SimpleExcelWriter::streamDownload('accounts.csv');
-        $accounts = Employee::with(['payment', 'consumption'])->get()->toArray();
+        $accounts = Employee::with(['payment', 'consumption'])->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->get()->toArray();
 
         $csv->addRow([
             'Employee',

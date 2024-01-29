@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,10 +20,25 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <style>
+        .js-cookie-consent{
+            text-align: center;
+            width: 100%;
+            background-color: #fffbdb;
+            border-color: #fffacc;
+        }
+        </style>
+        
+        <style>
+            .js-cookie-consent button{
+                width: 35%;
+            }
+        </style>
+
 </head>
 
 <body id="page-top">
-
+    @include('cookie-consent::index')
     <!-- Page Wrapper -->
     <div id="wrapper">
 

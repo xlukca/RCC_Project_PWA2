@@ -12,9 +12,26 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('user/css/styles.css') }}" rel="stylesheet" />
+        
+        <style>
+        .js-cookie-consent{
+            text-align: center;
+            width: 100%;
+            background-color: #fffbdb;
+            border-color: #fffacc;
+        }
+        </style>
+
+        <style>
+            .js-cookie-consent button{
+                width: 35%;
+            }
+        </style>
+       
     </head>
     <body>
         <header>
+            @include('cookie-consent::index')
             <h1 class="site-heading text-center text-faded d-none d-lg-block">
                 <span class="site-heading-upper text-primary mb-3">I need coffee in an IV.</span>
                 <span class="site-heading-lower">Registration of Coffee Consumption </span>
@@ -27,7 +44,6 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="/">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('coffee') }}">Coffee</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('searchCoffee') }}">Coffee Consumption</a></li>
                         <li class="nav-item px-lg-4">
