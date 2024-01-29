@@ -15,12 +15,18 @@ class NotificationEmail extends Mailable
     use Queueable, SerializesModels;
 
     public $result;
+    public $selectedMonths;
+    public $selectedYears;
+    public $pocetK;
     /**
      * Create a new message instance.
      */
-    public function __construct($result)
+    public function __construct($result, $selectedMonths, $selectedYears, $pocetK)
     {
         $this->result = $result;
+        $this->selectedMonths = $selectedMonths;
+        $this->selectedYears = $selectedYears;
+        $this->pocetK = $pocetK;
     }
 
     /**
