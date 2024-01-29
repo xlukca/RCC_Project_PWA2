@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\NotificationEmail;
 use App\Models\CoffeeConsumption;
 use App\Models\Employee;
-use Exception;
+// use Exception;
 
 class NotificationController extends Controller
 {
@@ -47,13 +47,53 @@ class NotificationController extends Controller
     });
 
         $results = $employee->get();
+        
+    //  dd($selectedMonths);
 
-        // dd($results);
+//          $filteredResults = [];
+
+    
+//         foreach ($results as $result) {
+//             foreach ($result->consumption as $r) {
+
+//             $monthOfOrder = $r->month_of_order;
+//             if (in_array($monthOfOrder, $selectedMonths)) {
+//                 // Ak sa hodnota zhoduje, pridajte riadok do výsledku
+//                 $filteredResults[] = $monthOfOrder;
+//         }
+//     }
+// }
+//     dd($filteredResults);
+
+
+
+//   POKUS MARTIN
+
+//  $id_uzivatel = [];
+$pocetK = [];
+
+    foreach ($results as $res) {
+        // $id_uzivatel[] = $res->id; 
+        foreach ($res->consumption as $r) {
+            if (in_array($r->year_of_order, $selectedYears)) {
+            if (in_array($r->month_of_order, $selectedMonths)) {
+                 $pocetK[] = $r->employee_id; 
+                }
+            }
+    }
+    }
+
+    $pocetK = array_count_values($pocetK);
+    // dd($pocetK[$res->id]);
+    
+    // $id_uzivatel;
+    // $pocetK = array_count_values($pocetK);
+    // dd($pocetK);
+
         foreach ($results as $result) {
-            
-            // dd($result->consumption->last()->month_of_order);
+                //  dd($result);
         try {
-            Mail::to($result->email)->queue(new NotificationEmail($result));
+            Mail::to($result->email)->queue(new NotificationEmail($result, $selectedMonths, $selectedYears, $pocetK));
             session()->flash('success', 'Emails were sent successfully');
         } catch (Exception $e) {
             session()->flash('failure', $e->getMessage());
