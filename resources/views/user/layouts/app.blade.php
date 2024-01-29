@@ -12,9 +12,26 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('user/css/styles.css') }}" rel="stylesheet" />
+        
+        <style>
+        .js-cookie-consent{
+            text-align: center;
+            width: 100%;
+            background-color: #fffbdb;
+            border-color: #fffacc;
+        }
+        </style>
+
+        <style>
+            .js-cookie-consent button{
+                width: 35%;
+            }
+        </style>
+       
     </head>
     <body>
         <header>
+            @include('cookie-consent::index')
             <h1 class="site-heading text-center text-faded d-none d-lg-block">
                 <span class="site-heading-upper text-primary mb-3">I need coffee in an IV.</span>
                 <span class="site-heading-lower">Registration of Coffee Consumption </span>
