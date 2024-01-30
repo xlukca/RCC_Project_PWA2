@@ -16,17 +16,15 @@ class NotificationEmail extends Mailable
 
     public $result;
     public $selectedMonths;
-    public $selectedYears;
-    public $pocetK;
+    public $coffee_num;
     /**
      * Create a new message instance.
      */
-    public function __construct($result, $selectedMonths, $selectedYears, $pocetK)
+    public function __construct($result, $selectedMonths, $coffee_num)
     {
         $this->result = $result;
         $this->selectedMonths = $selectedMonths;
-        $this->selectedYears = $selectedYears;
-        $this->pocetK = $pocetK;
+        $this->coffee_num = $coffee_num;
     }
 
     /**

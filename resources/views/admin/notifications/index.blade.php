@@ -23,14 +23,6 @@
                 @endforeach
             </select>
         </div>
-        {{-- <div class="col-md-3">
-            <label class="form-label">Employee</label>  
-            <select class="form-control" name="employee_id[]" required multiple>
-            @foreach($employee_id->sortBy('employee.employee_full_name_reverse') as $em)
-            <option value="{{ $em->employee_id }}">{{ $em->employee->employee_full_name_reverse }}</option>
-            @endforeach
-            </select>
-        </div> --}}
     </div>
 
     {{ Form::submit('Send emails', array('class' => 'btn btn-success')) }}
