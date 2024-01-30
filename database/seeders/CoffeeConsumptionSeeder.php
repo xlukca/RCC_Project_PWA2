@@ -13,6 +13,6 @@ class CoffeeConsumptionSeeder extends Seeder
      */
     public function run(): void
     {
-        CoffeeConsumption::factory()->count(250)->create();
+        CoffeeConsumption::factory()->count(40)->create();
     }
 }
