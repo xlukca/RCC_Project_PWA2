@@ -4,7 +4,7 @@
 <div class="container">
     <h3 class="mb-5">List of Departments</h3>
     <p><a href="{{ route('departments.create') }}" class="btn btn-secondary">Add a new Department</a></p>
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover" id="dataTable">
         <thead>
             <tr>
                 <th>ID</th>
@@ -49,7 +49,7 @@
             @endforeach
         </tbody>    
     </table>
-    {{ $departments->links() }}
+    {{-- {{ $departments->links() }} --}}
 </div>
 
 @endsection

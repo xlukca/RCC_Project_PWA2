@@ -9,7 +9,7 @@
         <a class="btn btn-success mb-3" href="{{ route('account.exportXLS') }}">Export to XLSX</a>
     </div>
 
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover" id="dataTable">
         <thead>
             <tr>
                 <th>Employee</th>
@@ -29,7 +29,7 @@
             @endforeach
         </tbody>    
     </table>
-    {{ $managements->links() }}
+    {{-- {{ $managements->links() }} --}}
 </div>
 
 @endsection

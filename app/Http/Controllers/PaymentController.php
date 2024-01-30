@@ -13,7 +13,8 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Payment::withTrashed()->with('employee')->orderBy('date_of_income', 'desc')->paginate(10);
+        // $payments = Payment::withTrashed()->with('employee')->orderBy('date_of_income', 'desc')->paginate(10);
+        $payments = Payment::withTrashed()->with('employee')->orderBy('date_of_income', 'desc')->get();
 
         return view('admin.payments.index')->with('payments', $payments);
     }

@@ -35,6 +35,9 @@
             }
         </style>
 
+<link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -228,6 +231,14 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('admin/js/demo/chart-pie-demo.js') }}"></script>
+
+    <script src=https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js></script>
+
+    <script>
+        new DataTable('#dataTable', {
+            pagingType: 'full_numbers'
+            });
+    </script>
 
 </body>
 
