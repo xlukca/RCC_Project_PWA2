@@ -4,7 +4,7 @@
 <div class="container">
     <h3 class="mb-5">List of Payments</h3>
     <p><a href="{{ route('payments.create') }}" class="btn btn-secondary">Add a new Payment</a></p>
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover" id="dataTable">
         <thead>
             <tr>
                 <th>ID</th>
@@ -47,7 +47,7 @@
             @endforeach
         </tbody>    
     </table>
-    {{ $payments->links() }}
+    {{-- {{ $payments->links() }} --}}
 </div>
 
 @endsection

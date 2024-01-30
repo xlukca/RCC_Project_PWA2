@@ -82,26 +82,3 @@ class CoffeeConsumptionController extends Controller
 }
 
 }
-
-    // $dates = DB::table('coffee_consumptions')->pluck('date_of_order');
-    // $years = [];
-    // $month = [];
-    // $day = [];
-    // foreach ($dates as $date) {
-    //     // Rozdeľte dátum podľa pomlčky
-    //     $dateParts = explode('-', $date);
-    
-    //     // Získajte prvý prvok, ktorý obsahuje rok
-    //     $year = $dateParts[0];
-    //     $month = $dateParts[1];
-    //     $day = $dateParts[2];
-    
-    //     // Pridajte rok do poľa rokov
-    //     $years[] = $year;
-    //     $months[] = $month;
-    //     $days[] = $day;
-    // }
-
-    // $year = $years;
-    // $month = $months;
-    // $day = $days;

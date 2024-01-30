@@ -11,7 +11,8 @@ class AccountManagementController extends Controller
 {
     public function account()
     {
-        $managements = Employee::with(['consumption', 'payment'])->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->paginate(10);
+        // $managements = Employee::with(['consumption', 'payment'])->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->paginate(10);
+        $managements = Employee::with(['consumption', 'payment'])->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->get();
        
         return view('admin.accountManagement.index')->with('managements', $managements);
     }
