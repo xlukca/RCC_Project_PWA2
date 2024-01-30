@@ -13,7 +13,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $departments = Department::withTrashed()->orderBy('id', 'asc')->paginate(10);
+        // $departments = Department::withTrashed()->orderBy('id', 'asc')->paginate(10);
+        $departments = Department::withTrashed()->orderBy('id', 'asc')->get();
 
         return view('admin.departments.index')->with('departments', $departments);
     }

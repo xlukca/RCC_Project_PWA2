@@ -13,7 +13,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::withTrashed()->with('department')->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->paginate(10);
+        // $employees = Employee::withTrashed()->with('department')->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->paginate(10);
+        $employees = Employee::withTrashed()->with('department')->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->get();
 
         return view('admin.employees.index')->with('employees', $employees);
     }
