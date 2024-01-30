@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('coffee_consumptions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->references('id')->on('employees');
-            $table->date('date_of_order');
+            $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
+            $table->string('year_of_order');
+            $table->string('month_of_order');
+            $table->string('day_of_order');
             $table->timestamps();
         });
     }

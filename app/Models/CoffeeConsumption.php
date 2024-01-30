@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class CoffeeConsumption extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'employee_id',
+        'year_of_order',
+        'month_of_order',
+        'day_of_order',
+    ];
+
+    public function employee()
+{
+    return $this->belongsTo(Employee::class, 'employee_id');
+}
 }

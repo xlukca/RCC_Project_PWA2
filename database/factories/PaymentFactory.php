@@ -17,7 +17,9 @@ class PaymentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'employee_id' => fake()->unique()->numberBetween(1, 50),
+            'income' => fake()->numerify('#.##'),
+            'date_of_income' => fake()->dateTimeBetween('2023-01-01', '2024-1-25')->format('Y-m-d'),
         ];
     }
 }
