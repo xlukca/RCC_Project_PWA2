@@ -23,8 +23,8 @@
             <tr>
                 <td>{{ $m->last_name }} {{ $m->first_name }}</td>
                 <td>{{ $m->payment->sum('income') }} €</td>
-                <td>{{ $m->consumption->count() * 0.3 }} €</td>
-                <td>{{ $m->payment->sum('income') - $m->consumption->count() * 0.3 }} €</td>
+                <td>{{ $m->consumption->count() * $cost }} €</td>
+                <td>{{ $m->payment->sum('income') - $m->consumption->count() * $cost }} €</td>
             </tr>
             @endforeach
         </tbody>    

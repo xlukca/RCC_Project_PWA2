@@ -54,11 +54,12 @@ $coffee_num = [];
     }
     
     $coffee_num = array_count_values($coffee_num);
+    $cost = 0.3;
     // dd($coffee_num);
 
         foreach ($results as $result) {
         try {
-            Mail::to($result->email)->queue(new NotificationEmail($result, $selectedMonths, $coffee_num));
+            Mail::to($result->email)->queue(new NotificationEmail($result, $selectedMonths, $coffee_num, $cost));
             session()->flash('success', 'Emails were sent successfully');
         } catch (Exception $e) {
             session()->flash('failure', $e->getMessage());

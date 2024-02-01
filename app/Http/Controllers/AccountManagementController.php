@@ -13,8 +13,9 @@ class AccountManagementController extends Controller
     {
         // $managements = Employee::with(['consumption', 'payment'])->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->paginate(10);
         $managements = Employee::with(['consumption', 'payment'])->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->get();
+        $cost = 0.3;
        
-        return view('admin.accountManagement.index')->with('managements', $managements);
+        return view('admin.accountManagement.index')->with('managements', $managements)->with('cost', $cost);
     }
 
     public function exportPDF()
