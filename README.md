@@ -54,8 +54,7 @@ A webpage that includes a month selection and a button to send an email. The ema
 <p>
     Dobrý deň *NAME*,
 </p>
-<p> 
-<br>    
+<p>  
 za mesiac *MONTH* evidujeme spotrebu kávy v počte *COFFEE NUMBER*.
 <br>
             Sumu *COFFEE NUMBER x 0.3* € musíte uhradiť do *CURRENT DAY+ 7 DAYS*.
@@ -72,13 +71,13 @@ za mesiac *MONTH* evidujeme spotrebu kávy v počte *COFFEE NUMBER*.
 
 The webpage displays all employees in a table format with the following columns: Last Name | First Name | Income | Expenses | Difference. Additionally, it includes buttons to export the list to PDF and XLSX formats.
 
-<p align="center"><img src="public/rcc_img/account_management.png"></p>
+<p align="center"><img src="public/rcc_img/admin_account_management.png"></p>
 
 ## Payments
 
 Complete payment management (CRUD) - credit creation.
 
-<p align="center"><img src="public/rcc_img/payments.png"></p>
+<p align="center"><img src="public/rcc_img/admin_payments.png"></p>
 
 ## Cookies
 
