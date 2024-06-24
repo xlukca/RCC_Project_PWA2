@@ -33,19 +33,19 @@ The application displays a page with a form that includes the selection of the m
 
 The non-public part is accessible after logging in. I have created a login form for this purpose. After logging into their account, the admin can manage the sections in the non-public part of the application.
 
-<p align="center"><img src="public/rcc_img/login.png"></p>
+<p align="center"><img src="public/rcc_img/user_login.png"></p>
 
 ## Departments
 
 Complete department management (Create, Read, Update, Delete (CRUD)).
 
-<p align="center"><img src="public/rcc_img/admin_departments.png"></p>
+<p align="center"><img src="public/rcc_img/admin_department.png"></p>
 
 ## Employees
 
 Complete employees management (CRUD).
 
-<p align="center"><img src="public/rcc_img/admin_employees.png"></p>
+<p align="center"><img src="public/rcc_img/admin_employee.png"></p>
 
 ## Notification
 
