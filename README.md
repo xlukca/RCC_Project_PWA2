@@ -1,59 +1,87 @@
-<h1>Registration of Coffee Consumption<h1>
+<p align="center"><img src="{{ asset('rcc_img/registration_of_coffee_consumption.png') }}"></p>
 
-## About Laravel
+## About
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The web application is used for recording the coffee consumption by employees who are assigned to various departments. All employees and their data were created using the fake() function. The application is divided into a public and a non-public part.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Public part:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Coffee (homepage).
+- Coffee Consumption (overview).
+- Login
 
-## Learning Laravel
+Non-public part:
+- Departments (CRUD) 
+- Employees (CRUD)
+- Notification
+- Account Management
+- Payments (CRUD)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Coffee
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+The Coffee section displays a page with buttons showing the names of active employees. Clicking on an employee's name records the consumption of one coffee along with the date.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<p align="center"><img src="{{ asset('rcc_img/homepage.png') }}"></p>
 
-## Laravel Sponsors
+## Coffee Consumption
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+The application displays a page with a form that includes the selection of the month, year, and employee. Upon submission, an overview of the employee's coffee consumption for the specified period (list of times) and the total number of coffees is displayed.
 
-### Premium Partners
+<p align="center"><img src="{{ asset('rcc_img/searching.png') }}"></p>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Login
 
-## Contributing
+The non-public part is accessible after logging in. I have created a login form for this purpose. After logging into their account, the admin can manage the sections in the non-public part of the application.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<p align="center"><img src="{{ asset('rcc_img/login.png') }}"></p>
 
-## Code of Conduct
+## Departments
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Complete department management (Create, Read, Update, Delete (CRUD)).
 
-## Security Vulnerabilities
+<p align="center"><img src="{{ asset('rcc_img/admin_departments.png') }}"></p>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Employees
 
-## License
+Complete employees management (CRUD).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p align="center"><img src="{{ asset('rcc_img/admin_employees.png') }}"></p>
+
+## Notification
+
+A webpage that includes a month selection and a button to send an email. The email contains the following message:
+
+<p>
+    Dobrý deň *NAME*,
+</p>
+<p> 
+<br>    
+za mesiac *MONTH* evidujeme spotrebu kávy v počte *COFFEE NUMBER*.
+<br>
+            Sumu *COFFEE NUMBER x 0.3* € musíte uhradiť do *CURRENT DAY+ 7 DAYS*.
+<br>
+            Váš aktuálny zostatok na účte je *BALANCE ON THE ACCOUNT* €.
+</p>
+<p>
+    S pozdravom, Administrátor. 
+</p>
+
+<p align="center"><img src="{{ asset('rcc_img/admin_notification.png') }}"></p>
+
+## Account Management
+
+The webpage displays all employees in a table format with the following columns: Last Name | First Name | Income | Expenses | Difference. Additionally, it includes buttons to export the list to PDF and XLSX formats.
+
+<p align="center"><img src="{{ asset('rcc_img/account_management.png') }}"></p>
+
+## Payments
+
+Complete payment management (CRUD) - credit creation.
+
+<p align="center"><img src="{{ asset('rcc_img/payments.png') }}"></p>
+
+## Cookies
+
+Implementation of cookie consent.
+
+<p align="center"><img src="{{ asset('rcc_img/cookies.png') }}"></p>
